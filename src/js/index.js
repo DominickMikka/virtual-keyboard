@@ -2,7 +2,6 @@ import '../styles/main.scss';
 import Keyboard from './keyboard';
 
 const body = document.querySelector('body');
-
 const keyboardKeysEn = [];
 
 keyboardKeysEn[0] = new Map([
@@ -25,6 +24,66 @@ keyboardKeysEn[4] = new Map([
   ['Ctrl', 17], ['Win', 91], ['Alt', 18], ['Space', 32], ['Alt Gr', 18], ['←', 37], ['↓', 40], ['→', 39], ['Ctrl Rt', 17]
 ]);
 
+const nonPrintableKeys = ['button8', 'button9', 'button46', 'button20', 'button13', 'button16', 'button17', 'button91', 'button18', 'button32'];
+
 const keyboard = new Keyboard(keyboardKeysEn, body);
 
 keyboard.createKeyboard();
+
+const textArea = document.querySelector('.area-input');
+
+let pointerId = 0;
+
+body.addEventListener('pointerdown', (e) => {
+  if (e.target.closest('.key')) {
+    pointerId = e.target;
+    let nonPrintable = false;
+
+    nonPrintableKeys.forEach(cl => {
+      if (pointerId.classList.contains(cl)) {
+        nonPrintable = true;
+      };
+    });
+    
+    if (!nonPrintable) {
+      textArea.value += pointerId.textContent;
+    }
+
+    if (pointerId.classList.contains(nonPrintableKeys[0])) {
+      // backspace
+    }
+
+    if (pointerId.classList.contains(nonPrintableKeys[1])) {
+      // tab
+      textArea.value += '    ';
+    }
+
+    if (pointerId.classList.contains(nonPrintableKeys[2])) {
+      // delete
+    }
+
+    if (pointerId.classList.contains(nonPrintableKeys[3])) {
+      // Caps Lock
+    }
+
+    if (pointerId.classList.contains(nonPrintableKeys[4])) {
+      // Enter
+      textArea.value += '\n';
+    }
+
+    if (pointerId.classList.contains(nonPrintableKeys[5])) {
+      // Shift
+    }
+
+    if (pointerId.classList.contains(nonPrintableKeys[9])) {
+      // space
+      textArea.value += ' ';
+    }
+
+    e.target.classList.add('highlight');
+  }
+});
+
+body.addEventListener('mouseup', () => {
+  pointerId.classList.remove('highlight');
+});
