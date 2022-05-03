@@ -2,33 +2,41 @@ import '../styles/main.scss';
 import Keyboard from './keyboard';
 
 const body = document.querySelector('body');
-const keyboardKeysEn = [];
 
-keyboardKeysEn[0] = new Map([
-  ['`', 192], ['1', 49], ['2', 50], ['3', 51], ['4', 52], ['5', 53], ['6', 54], ['7', 55], ['8', 56], ['9', 57], ['0', 48], ['-', 189], ['=', 187], ['Backspace', 8]
-]);
+const keyboardKeys = [
+[
+  ['`', '~', 'ё', 'Ё'], ['1', '!', '1', '!'], ['2', '@', '2', '"'], ['3', '#', '3', '№'], ['4', '$', '4', ';'], ['5', '%', '5', '%'], ['6', '^', '6', ':'], ['7', '&', '7', '?'], ['8', '*', '8', '*'], ['9', '(', '9', '('], ['0', ')', '0', ')'], ['-', '_', '-', '_'], ['=', '+', '=', '+'], ['Backspace', 'Backspace', 'Backspace', 'Backspace']
+], 
+[
+  ['Tab', 'Tab', 'Tab', 'Tab'], ['q', 'Q', 'й', 'Й'], ['w', 'W', 'ц', 'Ц'], ['e', 'E', 'у', 'У'], ['r', 'R', 'к', 'К'], ['t', 'T', 'е', 'Е'], ['y', 'Y', 'н', 'Н'], ['u', 'U', 'г', 'Г'], ['i', 'I', 'ш', 'Ш'], ['o', 'O', 'щ', 'Щ'], ['p', 'P', 'з', 'З'], ['[', '{', 'х', 'Х'], [']', '}', 'ъ', 'Ъ'], ['Delete', 'Delete', 'Delete', 'Delete']
+], 
+[
+  ['CapsLock', 'CapsLock', 'CapsLock', 'CapsLock'], ['a', 'A', 'ф', 'Ф'], ['s', 'S', 'ы', 'Ы'], ['d', 'D', 'в', 'В'], ['f', 'F', 'а', 'А'], ['g', 'G', 'п', 'П'], ['h', 'H', 'р', 'Р'], ['j', 'J', 'о', 'О'], ['k', 'K', 'л', 'Л'], ['l', 'L', 'д', 'Д'], [';', ':', 'ж', 'Ж'], ["'", '"', 'э', 'Э'], ['Enter', 'Enter', 'Enter', 'Enter']
+],
+[
+  ['Shift', 'Shift', 'Shift', 'Shift'], ['z', 'Z', 'я', 'Я'], ['x', 'X', 'ч', 'Ч'], ['c', 'C', 'с', 'С'], ['v', 'V', 'м', 'М'], ['b', 'B', 'и', 'И'], ['n', 'N', 'т', 'Т'], ['m', 'M', 'ь', 'Ь'], [',', '<', 'б', 'Б'], ['.', '>', 'ю', 'Ю'], ['/', '?', '.', ','], ['↑', '↑', '↑', '↑'], ['Shift', 'Shift', 'Shift', 'Shift']
+],
+[
+  ['Ctrl', 'Ctrl', 'Ctrl', 'Ctrl'], ['Win', 'Win', 'Win', 'Win'], ['Alt', 'Alt', 'Alt', 'Alt'], ['Space', 'Space', 'Space', 'Space'], ['Alt', 'Alt', 'Alt', 'Alt'], ['←', '←', '←', '←'], ['↓', '↓', '↓', '↓'], ['→', '→', '→', '→'], ['Ctrl', 'Ctrl', 'Ctrl', 'Ctrl']
+]
+];
 
-keyboardKeysEn[1] = new Map([
-  ['Tab', 9], ['q', 81], ['w', 87], ['e', 69], ['r', 82], ['t', 84], ['y', 89], ['u', 85], ['i', 73], ['o', 79], ['p', 80], ['[', 219], ['&#92;', 220], ['Delete', 46]
-]);
+const keyboard = new Keyboard(keyboardKeys, body);
 
-keyboardKeysEn[2] = new Map([
-  ['Caps Lock', 20], ['a', 65], ['s', 83], ['d', 68], ['f', 70], ['g', 71], ['h', 72], ['j', 74], ['k', 75], ['l', 76], [';', 186], ['&#8216;', 222], ['Enter', 13]
-]);
+let lang = keyboard.getItemStorage('lang');
+let keyCase = keyboard.getItemStorage('keyCase');
 
-keyboardKeysEn[3] = new Map([
-  ['↑ Shift', 16], ['z', 90], ['x', 88], ['c', 67], ['v', 86], ['b', 66], ['n', 78], ['m', 77], [',', 188], ['.', 190], ['/', 191], ['↑', 38], ['Shift ↑', 16]
-]);
+if (!lang) {
+  lang = 'ENG';
+  keyboard.setItemStorage('lang', lang);
+}
 
-keyboardKeysEn[4] = new Map([
-  ['Ctrl', 17], ['Win', 91], ['Alt', 18], ['Space', 32], ['Alt Gr', 18], ['←', 37], ['↓', 40], ['→', 39], ['Ctrl Rt', 17]
-]);
+if (!keyCase) {
+  keyCase = 'lower';
+  keyboard.setItemStorage('keyCase', keyCase);
+}
 
-const nonPrintableKeys = ['button8', 'button9', 'button46', 'button20', 'button13', 'button16', 'button17', 'button91', 'button18', 'button32'];
-
-const keyboard = new Keyboard(keyboardKeysEn, body);
-
-keyboard.createKeyboard();
+keyboard.createKeyboard(lang, keyCase);
 
 const textArea = document.querySelector('.area-input');
 
@@ -37,53 +45,79 @@ let pointerId = 0;
 body.addEventListener('pointerdown', (e) => {
   if (e.target.closest('.key')) {
     pointerId = e.target;
-    let nonPrintable = false;
+    e.target.classList.add('highlight');
 
-    nonPrintableKeys.forEach(cl => {
-      if (pointerId.classList.contains(cl)) {
-        nonPrintable = true;
-      };
-    });
-    
-    if (!nonPrintable) {
-      textArea.value += pointerId.textContent;
-    }
+    textArea.value += pointerId.textContent;
 
-    if (pointerId.classList.contains(nonPrintableKeys[0])) {
+    if (pointerId.textContent === 'Backspace') {
       // backspace
     }
 
-    if (pointerId.classList.contains(nonPrintableKeys[1])) {
-      // tab
+    if (pointerId.textContent === 'Tab') {
       textArea.value += '    ';
     }
 
-    if (pointerId.classList.contains(nonPrintableKeys[2])) {
+    if (pointerId.textContent === 'Delete') {
       // delete
     }
 
-    if (pointerId.classList.contains(nonPrintableKeys[3])) {
-      // Caps Lock
+    if (pointerId.textContent === 'CapsLock') {
+      if (keyCase === 'lower') {
+        keyCase = 'upper';
+        keyboard.createKeyboard('ENG', keyCase);
+        keyboard.setItemStorage('keyCase', keyCase);
+      } else if (keyCase === 'upper') {
+        keyCase = 'lower';
+        keyboard.createKeyboard('ENG', keyCase);
+        keyboard.setItemStorage('keyCase', keyCase);
+      }
     }
 
-    if (pointerId.classList.contains(nonPrintableKeys[4])) {
+    if (pointerId.textContent === 'Enter') {
       // Enter
       textArea.value += '\n';
     }
 
-    if (pointerId.classList.contains(nonPrintableKeys[5])) {
+    if (pointerId.textContent === 'Shift') {
       // Shift
     }
 
-    if (pointerId.classList.contains(nonPrintableKeys[9])) {
+    if (pointerId.textContent === 'Space') {
       // space
       textArea.value += ' ';
     }
-
-    e.target.classList.add('highlight');
   }
 });
 
-body.addEventListener('mouseup', () => {
+body.addEventListener('pointerup', () => {
   pointerId.classList.remove('highlight');
 });
+
+body.addEventListener('keydown', (e) => {
+  const allKeys = document.querySelectorAll('.key');
+  allKeys.forEach(el => {
+    if (e.key === el.textContent) {
+      el.classList.add('highlight');
+      textArea.value += el.textContent;
+    }
+  });
+
+  if (e.key === 'CapsLock') {
+    if (keyCase === 'lower') {
+      keyCase = 'upper';
+      keyboard.createKeyboard('ENG', keyCase);
+      keyboard.setItemStorage('keyCase', keyCase);
+    } else if (keyCase === 'upper') {
+      keyCase = 'lower';
+      keyboard.createKeyboard('ENG', keyCase);
+      keyboard.setItemStorage('keyCase', keyCase);
+    }
+  }
+})
+
+body.addEventListener('keyup', () => {
+  const allKeys = document.querySelectorAll('.key');
+  allKeys.forEach(el => {
+    el.classList.remove('highlight');
+  });
+})

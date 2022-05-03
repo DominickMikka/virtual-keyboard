@@ -4,6 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  gap: 5px;
 }
 
 .area-input {
@@ -18,7 +19,6 @@
   display: flex;
   flex-direction: row;
   gap: 8px;
-  flex-wrap: wrap;
   max-height: 40px;
 }
 
@@ -33,26 +33,38 @@
   font-family: Arial;
   font-size: 14px;
 
-  &.button9 {
-    width: 49px;
-  }
-
-  &.button13 {
-    width: 63px;
-  }
-
-  &.button16 {
-    width: 65px;
-  }
-
-  &.button32 {
-    width: 228px;
-  }
-
   &.highlight {
     transition: all 0.5s;
     background: #7bcdfa;
     box-shadow: 0 0 0;
   }
   
+}
+
+.keyboard-line1{
+  .key:nth-child(1) {
+    width: 48px;
+  }
+}
+
+.keyboard-line2{
+  .key:nth-child(13) {
+    width: 66px;
+  }
+}
+
+.keyboard-line3{
+  .key:nth-child(1) {
+    width: 64px;
+  }
+
+  .key:nth-child(13) {
+    width: 64px;
+  }
+}
+
+.keyboard-line4{
+  .key:nth-child(4) {
+    width: 260px;
+  }
 }
