@@ -48,6 +48,39 @@ class Keyboard {
         keyboardWrapper.append(keyboardLine);
       }
     }
+
+    if (lang === 'RU' && keyCase === 'lower') {
+      for(let i = 0; i < this.keyboardKeys.length; i+= 1) {
+        const keyboardLine = document.createElement('div');
+        keyboardLine.classList.add(`keyboard-line`);
+        keyboardLine.classList.add(`keyboard-line${i}`);
+  
+        for (let j = 0; j < this.keyboardKeys[i].length; j+= 1) {
+          const button = document.createElement('div');
+          button.classList.add('key');
+          button.innerHTML = this.keyboardKeys[i][j][2];
+          keyboardLine.append(button);
+        }
+        keyboardWrapper.append(keyboardLine);
+      }
+    }
+
+    if (lang === 'RU' && keyCase === 'upper') {
+      for(let i = 0; i < this.keyboardKeys.length; i+= 1) {
+        const keyboardLine = document.createElement('div');
+        keyboardLine.classList.add(`keyboard-line`);
+        keyboardLine.classList.add(`keyboard-line${i}`);
+  
+        for (let j = 0; j < this.keyboardKeys[i].length; j+= 1) {
+          const button = document.createElement('div');
+          button.classList.add('key');
+          button.innerHTML = this.keyboardKeys[i][j][3];
+          keyboardLine.append(button);
+        }
+        keyboardWrapper.append(keyboardLine);
+      }
+    }
+
     this.body.append(keyboardWrapper);    
   }
 

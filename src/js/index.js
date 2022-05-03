@@ -47,19 +47,17 @@ body.addEventListener('pointerdown', (e) => {
     pointerId = e.target;
     e.target.classList.add('highlight');
 
-    textArea.value += pointerId.textContent;
-
     if (pointerId.textContent === 'Backspace') {
       // backspace
-    }
+    } else
 
     if (pointerId.textContent === 'Tab') {
       textArea.value += '    ';
-    }
+    } else
 
     if (pointerId.textContent === 'Delete') {
       // delete
-    }
+    } else
 
     if (pointerId.textContent === 'CapsLock') {
       if (keyCase === 'lower') {
@@ -71,20 +69,35 @@ body.addEventListener('pointerdown', (e) => {
         keyboard.createKeyboard('ENG', keyCase);
         keyboard.setItemStorage('keyCase', keyCase);
       }
-    }
+    } else
 
     if (pointerId.textContent === 'Enter') {
       // Enter
       textArea.value += '\n';
-    }
+    } else
 
     if (pointerId.textContent === 'Shift') {
       // Shift
-    }
+    } else
+
+    if (pointerId.textContent === 'Ctrl') {
+      // Ctrl
+    } else
+
+    if (pointerId.textContent === 'Win') {
+      // Ctrl
+    } else
+
+    if (pointerId.textContent === 'Alt') {
+      // Ctrl
+    } else
 
     if (pointerId.textContent === 'Space') {
       // space
       textArea.value += ' ';
+    } else {
+      // default
+      textArea.value += pointerId.textContent;
     }
   }
 });
@@ -105,12 +118,24 @@ body.addEventListener('keydown', (e) => {
   if (e.key === 'CapsLock') {
     if (keyCase === 'lower') {
       keyCase = 'upper';
-      keyboard.createKeyboard('ENG', keyCase);
+      keyboard.createKeyboard(lang, keyCase);
       keyboard.setItemStorage('keyCase', keyCase);
     } else if (keyCase === 'upper') {
       keyCase = 'lower';
-      keyboard.createKeyboard('ENG', keyCase);
+      keyboard.createKeyboard(lang, keyCase);
       keyboard.setItemStorage('keyCase', keyCase);
+    }
+  }
+
+  if (e.altKey && e.shiftKey) {
+    if (lang === 'ENG') {
+      lang = 'RU';
+      keyboard.createKeyboard(lang, keyCase);
+      keyboard.setItemStorage('lang', lang);
+    } else if (lang === 'RU') {
+      lang = 'ENG';
+      keyboard.createKeyboard(lang, keyCase);
+      keyboard.setItemStorage('lang', lang);
     }
   }
 })
