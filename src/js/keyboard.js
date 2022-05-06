@@ -22,11 +22,16 @@ class Keyboard {
         const keyboardLine = document.createElement('div');
         keyboardLine.classList.add(`keyboard-line`);
         keyboardLine.classList.add(`keyboard-line${i}`);
-  
+
         for (let j = 0; j < this.keyboardKeys[i].length; j+= 1) {
           const button = document.createElement('div');
           button.classList.add('key');
           button.innerHTML = this.keyboardKeys[i][j][0];
+
+          if (this.keyboardKeys[i][j][0] === 'Alt' || this.keyboardKeys[i][j][0] === 'Shift' || this.keyboardKeys[i][j][0] === 'Ctrl' || this.keyboardKeys[i][j][0] === '↑' || this.keyboardKeys[i][j][0] === '←' || this.keyboardKeys[i][j][0] === '↓' || this.keyboardKeys[i][j][0] === '→' || this.keyboardKeys[i][j][0] === 'Space' || this.keyboardKeys[i][j][0] === 'Win' || this.keyboardKeys[i][j][0] === 'Backspace' || this.keyboardKeys[i][j][0] === 'Delete' || this.keyboardKeys[i][j][0] === 'CapsLock' || this.keyboardKeys[i][j][0] === 'Enter' || this.keyboardKeys[i][j][0] === 'Tab') {
+            button.classList.add(this.keyboardKeys[i][j][4]); 
+          }
+
           keyboardLine.append(button);
         }
         keyboardWrapper.append(keyboardLine);
@@ -43,6 +48,11 @@ class Keyboard {
           const button = document.createElement('div');
           button.classList.add('key');
           button.innerHTML = this.keyboardKeys[i][j][1];
+
+          if (this.keyboardKeys[i][j][0] === 'Alt' || this.keyboardKeys[i][j][0] === 'Shift' || this.keyboardKeys[i][j][0] === 'Ctrl' || this.keyboardKeys[i][j][0] === '↑' || this.keyboardKeys[i][j][0] === '←' || this.keyboardKeys[i][j][0] === '↓' || this.keyboardKeys[i][j][0] === '→' || this.keyboardKeys[i][j][0] === 'Space' || this.keyboardKeys[i][j][0] === 'Win' || this.keyboardKeys[i][j][0] === 'Backspace' || this.keyboardKeys[i][j][0] === 'Delete' || this.keyboardKeys[i][j][0] === 'CapsLock' || this.keyboardKeys[i][j][0] === 'Enter' || this.keyboardKeys[i][j][0] === 'Tab') {
+            button.classList.add(this.keyboardKeys[i][j][4]); 
+          }
+
           keyboardLine.append(button);
         }
         keyboardWrapper.append(keyboardLine);
@@ -59,6 +69,11 @@ class Keyboard {
           const button = document.createElement('div');
           button.classList.add('key');
           button.innerHTML = this.keyboardKeys[i][j][2];
+
+          if (this.keyboardKeys[i][j][0] === 'Alt' || this.keyboardKeys[i][j][0] === 'Shift' || this.keyboardKeys[i][j][0] === 'Ctrl' || this.keyboardKeys[i][j][0] === '↑' || this.keyboardKeys[i][j][0] === '←' || this.keyboardKeys[i][j][0] === '↓' || this.keyboardKeys[i][j][0] === '→' || this.keyboardKeys[i][j][0] === 'Space' || this.keyboardKeys[i][j][0] === 'Win' || this.keyboardKeys[i][j][0] === 'Backspace' || this.keyboardKeys[i][j][0] === 'Delete' || this.keyboardKeys[i][j][0] === 'CapsLock' || this.keyboardKeys[i][j][0] === 'Enter' || this.keyboardKeys[i][j][0] === 'Tab') {
+            button.classList.add(this.keyboardKeys[i][j][4]); 
+          }
+
           keyboardLine.append(button);
         }
         keyboardWrapper.append(keyboardLine);
@@ -75,6 +90,11 @@ class Keyboard {
           const button = document.createElement('div');
           button.classList.add('key');
           button.innerHTML = this.keyboardKeys[i][j][3];
+
+          if (this.keyboardKeys[i][j][0] === 'Alt' || this.keyboardKeys[i][j][0] === 'Shift' || this.keyboardKeys[i][j][0] === 'Ctrl' || this.keyboardKeys[i][j][0] === '↑' || this.keyboardKeys[i][j][0] === '←' || this.keyboardKeys[i][j][0] === '↓' || this.keyboardKeys[i][j][0] === '→' || this.keyboardKeys[i][j][0] === 'Space' || this.keyboardKeys[i][j][0] === 'Win' || this.keyboardKeys[i][j][0] === 'Backspace' || this.keyboardKeys[i][j][0] === 'Delete' || this.keyboardKeys[i][j][0] === 'CapsLock' || this.keyboardKeys[i][j][0] === 'Enter' || this.keyboardKeys[i][j][0] === 'Tab') {
+            button.classList.add(this.keyboardKeys[i][j][4]); 
+          }
+
           keyboardLine.append(button);
         }
         keyboardWrapper.append(keyboardLine);
