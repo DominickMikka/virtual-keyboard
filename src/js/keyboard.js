@@ -30,6 +30,8 @@ class Keyboard {
 
           if (this.keyboardKeys[i][j][0] === 'Alt' || this.keyboardKeys[i][j][0] === 'Shift' || this.keyboardKeys[i][j][0] === 'Ctrl' || this.keyboardKeys[i][j][0] === '↑' || this.keyboardKeys[i][j][0] === '←' || this.keyboardKeys[i][j][0] === '↓' || this.keyboardKeys[i][j][0] === '→' || this.keyboardKeys[i][j][0] === 'Space' || this.keyboardKeys[i][j][0] === 'Win' || this.keyboardKeys[i][j][0] === 'Backspace' || this.keyboardKeys[i][j][0] === 'Delete' || this.keyboardKeys[i][j][0] === 'CapsLock' || this.keyboardKeys[i][j][0] === 'Enter' || this.keyboardKeys[i][j][0] === 'Tab') {
             button.classList.add(this.keyboardKeys[i][j][4]); 
+          } else {
+            button.dataset.code = this.keyboardKeys[i][j][4];
           }
 
           keyboardLine.append(button);
@@ -51,6 +53,8 @@ class Keyboard {
 
           if (this.keyboardKeys[i][j][0] === 'Alt' || this.keyboardKeys[i][j][0] === 'Shift' || this.keyboardKeys[i][j][0] === 'Ctrl' || this.keyboardKeys[i][j][0] === '↑' || this.keyboardKeys[i][j][0] === '←' || this.keyboardKeys[i][j][0] === '↓' || this.keyboardKeys[i][j][0] === '→' || this.keyboardKeys[i][j][0] === 'Space' || this.keyboardKeys[i][j][0] === 'Win' || this.keyboardKeys[i][j][0] === 'Backspace' || this.keyboardKeys[i][j][0] === 'Delete' || this.keyboardKeys[i][j][0] === 'CapsLock' || this.keyboardKeys[i][j][0] === 'Enter' || this.keyboardKeys[i][j][0] === 'Tab') {
             button.classList.add(this.keyboardKeys[i][j][4]); 
+          } else {
+            button.dataset.code = this.keyboardKeys[i][j][4];
           }
 
           keyboardLine.append(button);
@@ -72,6 +76,8 @@ class Keyboard {
 
           if (this.keyboardKeys[i][j][0] === 'Alt' || this.keyboardKeys[i][j][0] === 'Shift' || this.keyboardKeys[i][j][0] === 'Ctrl' || this.keyboardKeys[i][j][0] === '↑' || this.keyboardKeys[i][j][0] === '←' || this.keyboardKeys[i][j][0] === '↓' || this.keyboardKeys[i][j][0] === '→' || this.keyboardKeys[i][j][0] === 'Space' || this.keyboardKeys[i][j][0] === 'Win' || this.keyboardKeys[i][j][0] === 'Backspace' || this.keyboardKeys[i][j][0] === 'Delete' || this.keyboardKeys[i][j][0] === 'CapsLock' || this.keyboardKeys[i][j][0] === 'Enter' || this.keyboardKeys[i][j][0] === 'Tab') {
             button.classList.add(this.keyboardKeys[i][j][4]); 
+          } else {
+            button.dataset.code = this.keyboardKeys[i][j][4];
           }
 
           keyboardLine.append(button);
@@ -93,6 +99,8 @@ class Keyboard {
 
           if (this.keyboardKeys[i][j][0] === 'Alt' || this.keyboardKeys[i][j][0] === 'Shift' || this.keyboardKeys[i][j][0] === 'Ctrl' || this.keyboardKeys[i][j][0] === '↑' || this.keyboardKeys[i][j][0] === '←' || this.keyboardKeys[i][j][0] === '↓' || this.keyboardKeys[i][j][0] === '→' || this.keyboardKeys[i][j][0] === 'Space' || this.keyboardKeys[i][j][0] === 'Win' || this.keyboardKeys[i][j][0] === 'Backspace' || this.keyboardKeys[i][j][0] === 'Delete' || this.keyboardKeys[i][j][0] === 'CapsLock' || this.keyboardKeys[i][j][0] === 'Enter' || this.keyboardKeys[i][j][0] === 'Tab') {
             button.classList.add(this.keyboardKeys[i][j][4]); 
+          } else {
+            button.dataset.code = this.keyboardKeys[i][j][4];
           }
 
           keyboardLine.append(button);
