@@ -56,7 +56,6 @@ class Keyboard {
       }
 
     this.body.append(keyboardWrapper);
-
   }
 
   setItemStorage(name, value) {
