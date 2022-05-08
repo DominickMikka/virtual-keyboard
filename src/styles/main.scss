@@ -8,11 +8,12 @@
 }
 
 .area-input {
-  width: 100%;
+  width: 600px;
   min-height: 200px;
-  margin-bottom: 20px;
   padding: 0;
   resize: none;
+  margin: 20px auto 10px;
+  display: block;
 }
 
 .keyboard-line {
@@ -32,9 +33,10 @@
   box-shadow: 4.1px 3.1px 3.1px #7bcdfa;
   font-family: Arial;
   font-size: 14px;
+  user-select: none;
 
   &.highlight {
-    transition: all 0.5s;
+    transition: all 1s;
     background: #7bcdfa;
     box-shadow: 0 0 0;
   }
@@ -67,4 +69,11 @@
   .key:nth-child(4) {
     width: 260px;
   }
+}
+
+.hint {
+  text-align: center;
+  font-weight: bold;
+  margin: 20px 0 0 0;
+  font-family: sans-serif;
 }
