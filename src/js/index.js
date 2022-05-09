@@ -25,12 +25,8 @@ const textArea = document.querySelector('.area-input');
 
 let pointerElement = document.querySelector('.keyboard-wrapper');
 
-const printKey = (e, method = 'keyboard') => {
+const printKey = (e) => {
   const allKeys = document.querySelectorAll('.key');
-
-  if (method === 'keyboard') {
-    e.preventDefault();
-  }
 
   if (e.code === 'CapsLock') {
     
@@ -54,6 +50,7 @@ const printKey = (e, method = 'keyboard') => {
     textArea.value = textArea.value.slice(textArea.value[0], textArea.selectionEnd - 1) + textArea.value.slice(textArea.selectionEnd, textArea.length);
   } else 
   if (e.code === 'Tab') {
+    e.preventDefault();
     document.querySelector('.tab').classList.add('highlight');
     textArea.value += '    ';
   } else 
@@ -86,9 +83,11 @@ const printKey = (e, method = 'keyboard') => {
     }
   } else 
   if (e.code === 'AltLeft') {
+    e.preventDefault();
     document.querySelector('.alt-left').classList.add('highlight');
   } else 
   if (e.code === 'AltRight') {
+    e.preventDefault();
     document.querySelector('.alt-right').classList.add('highlight');
   } else 
   if (e.code === 'ControlLeft') {
@@ -152,55 +151,55 @@ body.addEventListener('pointerdown', (e) => {
     
     if (pointerElement.classList.contains('backspace')) {
       pointerElement.code = 'Backspace';
-      printKey(pointerElement , 'pointer');
+      printKey(pointerElement);
     } else
     if (pointerElement.classList.contains('tab')) {
       pointerElement.code = 'Tab';
-      printKey(pointerElement , 'pointer');
+      printKey(pointerElement);
     } else
     if (pointerElement.classList.contains('delete')) {
       pointerElement.code = 'Delete';
-      printKey(pointerElement , 'pointer');
+      printKey(pointerElement);
     } else
     if (pointerElement.classList.contains('capslock')) {
       pointerElement.code = 'CapsLock';
-      printKey(pointerElement , 'pointer');
+      printKey(pointerElement);
     } else
     if (pointerElement.classList.contains('enter')) {
       pointerElement.code = 'Enter';
-      printKey(pointerElement , 'pointer');
+      printKey(pointerElement);
     } else
     if (pointerElement.classList.contains('shift-left')) {
       pointerElement.code = 'ShiftLeft';
-      printKey(pointerElement , 'pointer');
+      printKey(pointerElement);
     } else
     if (pointerElement.classList.contains('shift-right')) {
       pointerElement.code = 'ShiftRight';
-      printKey(pointerElement , 'pointer');
+      printKey(pointerElement);
     } else
     if (pointerElement.classList.contains('ctrl-left')) {
       pointerElement.code = 'ControlLeft';
-      printKey(pointerElement , 'pointer');
+      printKey(pointerElement);
     } else
     if (pointerElement.classList.contains('ctrl-right')) {
       pointerElement.code = 'ControlRight';
-      printKey(pointerElement , 'pointer');
+      printKey(pointerElement);
     } else
     if (pointerElement.classList.contains('win')) {
       pointerElement.code = 'MetaLeft';
-      printKey(pointerElement , 'pointer');
+      printKey(pointerElement);
     } else
     if (pointerElement.classList.contains('alt-left')) {
       pointerElement.code = 'AltLeft';
-      printKey(pointerElement , 'pointer');
+      printKey(pointerElement);
     } else
     if (pointerElement.classList.contains('alt-right')) {
       pointerElement.code = 'AltRight';
-      printKey(pointerElement , 'pointer');
+      printKey(pointerElement);
     } else
     if (pointerElement.textContent === 'Space') {
       pointerElement.code = 'Space';
-      printKey(pointerElement , 'pointer');
+      printKey(pointerElement);
     } else {
       textArea.value += pointerElement.textContent;
     }
