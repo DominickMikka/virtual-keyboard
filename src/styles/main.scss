@@ -1,0 +1,79 @@
+.keyboard-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.area-input {
+  width: 600px;
+  min-height: 200px;
+  padding: 0;
+  resize: none;
+  margin: 20px auto 10px;
+  display: block;
+}
+
+.keyboard-line {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  max-height: 40px;
+}
+
+.key {
+  min-width: 20px;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #000;
+  height: 20px;
+  padding: 5px;
+  box-shadow: 4.1px 3.1px 3.1px #7bcdfa;
+  font-family: Arial;
+  font-size: 14px;
+  user-select: none;
+
+  &.highlight {
+    transition: all 1s;
+    background: #7bcdfa;
+    box-shadow: 0 0 0;
+  }
+  
+}
+
+.keyboard-line1{
+  .key:nth-child(1) {
+    width: 48px;
+  }
+}
+
+.keyboard-line2{
+  .key:nth-child(13) {
+    width: 66px;
+  }
+}
+
+.keyboard-line3{
+  .key:nth-child(1) {
+    width: 64px;
+  }
+
+  .key:nth-child(13) {
+    width: 64px;
+  }
+}
+
+.keyboard-line4{
+  .key:nth-child(4) {
+    width: 260px;
+  }
+}
+
+.hint {
+  text-align: center;
+  font-weight: bold;
+  margin: 20px 0 0 0;
+  font-family: sans-serif;
+}
